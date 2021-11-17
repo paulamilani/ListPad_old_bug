@@ -11,11 +11,13 @@
 
 ### TO DO
 
-[ ] determinar fk do campo lista da tabela item
+- [ ] determinar fk do campo lista da tabela item
+- [ ] ajuste data
+- [ ] activitys
 
 ### ✅ Demo
 
-### autor
+### Autor
 
 Desenvolvido por Paula Milani
 
