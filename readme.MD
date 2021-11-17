@@ -1,6 +1,6 @@
 # LISTPAD
 
-## Projeto integrado das disciplinas de Programação de Dispositivos Android 1 (PA1) e Banco de Dados para Computação Móvel (BDM)
+## Projeto integrado das disciplinas de Programação de Dispositivos Android 1 (PA1) e Banco de Dados para Computação Móvel (BDM).
 
 * 🛠 Tech
     * kotlin
@@ -11,9 +11,9 @@
 
 ### TO DO
 
-    - [ ] determinar fk do campo lista da tabela item
+[ ] determinar fk do campo lista da tabela item
 
-### licence
+### ✅ Demo
 
 ### autor
 
@@ -23,8 +23,5 @@ Desenvolvido por Paula Milani
 	🚧  App 🚀 Em construção...  🚧
 </h4>
 
-### ✅ Demo
 
-<h1 align="center">
-  <img alt="listpad" title="#listpad" src="./demo" />
-</h1>
+
