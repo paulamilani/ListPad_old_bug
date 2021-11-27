@@ -57,8 +57,8 @@ class ItemAdapter (val itemLista:ArrayList<Item>): RecyclerView.Adapter<ItemAdap
     }
 
     interface ItemListener
-    {
-        fun onItemClick(pos: Int)
+        : ListaAdapter.ListaListener {
+        override fun onItemClick(pos: Int)
     }
 
     override fun getFilter(): Filter {

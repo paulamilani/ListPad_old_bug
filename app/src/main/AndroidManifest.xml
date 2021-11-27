@@ -11,7 +11,10 @@
         android:theme="@style/Theme.ListPad">
         <activity
             android:name=".activity.DetalheActivity"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".activity.CadastroActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">

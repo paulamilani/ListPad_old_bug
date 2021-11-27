@@ -6,10 +6,11 @@
         <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_detalhe.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/common_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/contato_celula.xml" value="0.34375" />
         <entry key="app/src/main/res/menu/menu_cadastro.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_detalhe.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>

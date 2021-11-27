@@ -1,6 +1,5 @@
 package br.edu.ifsp.scl.sdm.listpad.activity
 
-import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,14 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.listpad.R
 import br.edu.ifsp.scl.sdm.listpad.data.DatabaseHelper
 import br.edu.ifsp.scl.sdm.listpad.data.ItemAdapter
-import br.edu.ifsp.scl.sdm.listpad.model.Item
+import br.edu.ifsp.scl.sdm.listpad.data.ListaAdapter
+import br.edu.ifsp.scl.sdm.listpad.model.Lista
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
     private val db = DatabaseHelper(this)
-    private var itemLista = ArrayList<Item>()
-    lateinit var itemAdapter: ItemAdapter
+    private var listaLista = ArrayList<Lista>()
+    lateinit var ListaAdapter: ListaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener{
-            val intent = Intent(applicationContext, DetalheActivity::class.java)
+            val intent = Intent(applicationContext, CadastroActivity::class.java)
             startActivity(intent)
         }
 
@@ -35,22 +35,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUI()
     {
-        itemLista = db.listarItem()
-        itemAdapter = ItemAdapter(itemLista)
+        listaLista = db.listarlista()
+        ListaAdapter = ListaAdapter(listaLista)
 
         val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.adapter = itemAdapter
+        recyclerview.adapter = ListaAdapter
 
         val listener = object :ItemAdapter.ItemListener{
             override fun onItemClick(pos: Int) {
                 val intent = Intent(applicationContext, DetalheActivity::class.java)
-                val c = itemAdapter.itemListaFilterable[pos]
+                val c = ListaAdapter.listaListaFilterable[pos]
                 intent.putExtra("item", c)
                 startActivity(intent)
             }
         }
-        itemAdapter.setClickListener(listener)
+        ListaAdapter.setClickListener(listener)
 
     }
 
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-                itemAdapter.filter.filter(p0)
+                ListaAdapter.filter.filter(p0)
                 return true
             }
 

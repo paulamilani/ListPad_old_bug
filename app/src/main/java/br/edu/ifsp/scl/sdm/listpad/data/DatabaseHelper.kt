@@ -36,8 +36,8 @@ class DatabaseHelper(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_TABLE_CATEGORIA = "CREATE TABLE $CATEGORIA ($ID_CATEGORIA INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_CAT TEXT)"
-        val CREATE_TABLE_LISTA = "CREATE TABLE $LISTA ($ID_LISTA INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT, $DESC_LISTA TEXT, $URGENTE INTEGER, $CAT_FK INTEGER)" //categoria fk
-        val CREATE_TABLE_ITEM = "CREATE TABLE $ITEM ($ID_ITEM INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_ITEM TEXT, $FLAG TEXT, $LISTA_FK INTEGER)" //lista fk
+        val CREATE_TABLE_LISTA = "CREATE TABLE $LISTA ($ID_LISTA INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT, $DESC_LISTA TEXT, $URGENTE INTEGER, $CAT_FK INTEGER, FOREIGN KEY ($CAT_FK ) REFERENCES $CATEGORIA ($ID_CATEGORIA))"
+        val CREATE_TABLE_ITEM = "CREATE TABLE $ITEM ($ID_ITEM INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_ITEM TEXT, $FLAG TEXT, $LISTA_FK INTEGER, FOREIGN KEY ($LISTA_FK) REFERENCES $LISTA ($ID_LISTA))"
 
         db?.execSQL(CREATE_TABLE_ITEM)
         db?.execSQL(CREATE_TABLE_LISTA)
@@ -143,8 +143,8 @@ class DatabaseHelper(context: Context) :
 
 
     //LISTAR
-    fun listarlista(): ArrayList<Item> {
-        val listarLista = ArrayList<Item>()
+    fun listarlista(): ArrayList<Lista> {
+        val listarLista = ArrayList<Lista>()
         val query = "SELECT * FROM $LISTA"
         val db = this.readableDatabase
         val cursor = db.rawQuery(query, null)

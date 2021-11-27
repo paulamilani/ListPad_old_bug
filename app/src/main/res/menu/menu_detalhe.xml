@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_alterarContato"
+        android:id="@+id/action_alterarItem"
         android:title="Salvar"
         android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_excluirContato"
+        android:id="@+id/action_excluirItem"
         android:title="Excluir"
         app:showAsAction="always"
         android:icon="@drawable/ic_baseline_delete_24"/>

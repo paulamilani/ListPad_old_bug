@@ -21,7 +21,7 @@ class ListaAdapter (val listaLista:ArrayList<Lista>): RecyclerView.Adapter<Lista
         this.listaListaFilterable = listaLista
     }
 
-    fun setClickListener(listener:ListaListener)
+    fun setClickListener(listener: ItemAdapter.ItemListener)
     {
         this.listener = listener
     }

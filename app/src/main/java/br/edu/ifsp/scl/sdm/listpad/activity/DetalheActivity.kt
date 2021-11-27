@@ -32,7 +32,7 @@ class DetalheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val db = DatabaseHelper(this)
 
-        if (item.itemId==R.id.action_alterarContato) {
+        if (item.itemId==R.id.action_alterarItem) {
             val nome = findViewById<EditText>(R.id.editTextNome).text.toString()
             val descricao = findViewById<EditText>(R.id.editTextDescricao).text.toString()
 
@@ -44,7 +44,7 @@ class DetalheActivity : AppCompatActivity() {
             finish()
         }
 
-        if (item.itemId==R.id.action_excluirContato) {
+        if (item.itemId==R.id.action_excluirItem) {
             if (db.apagarLista(lista)>0)
                 Toast.makeText(this,"Contato excluído", Toast.LENGTH_LONG).show()
             finish()
