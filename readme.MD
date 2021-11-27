@@ -22,8 +22,8 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
     - [] flag done item
   
 ## Entrega
-  [ ] video demo
-  [x] código repositório
+-[ ] video demo
+-[x] código repositório
 
 ### TO DO
 
@@ -33,7 +33,7 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
 - [x] activitys / campos
 - [ ] bug carregamento app
 
-### ✅ Demo
+### Demo
 
 
 ### Autor
