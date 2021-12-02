@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.listpad.R
 import br.edu.ifsp.scl.sdm.listpad.data.DatabaseHelper
-import br.edu.ifsp.scl.sdm.listpad.data.ItemAdapter
 import br.edu.ifsp.scl.sdm.listpad.data.ListaAdapter
 import br.edu.ifsp.scl.sdm.listpad.model.Lista
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener{
+        fab.setOnClickListener {
             val intent = Intent(applicationContext, CadastroActivity::class.java)
             startActivity(intent)
         }
@@ -33,8 +32,7 @@ class MainActivity : AppCompatActivity() {
         updateUI()
     }
 
-    private fun updateUI()
-    {
+    private fun updateUI() {
         listaLista = db.listarlista()
         ListaAdapter = ListaAdapter(listaLista)
 
@@ -42,11 +40,11 @@ class MainActivity : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = ListaAdapter
 
-        val listener = object :ItemAdapter.ItemListener{
+        val listener = object : ListaAdapter.ListaListener {
             override fun onItemClick(pos: Int) {
                 val intent = Intent(applicationContext, DetalheActivity::class.java)
                 val c = ListaAdapter.listaListaFilterable[pos]
-                intent.putExtra("item", c)
+                intent.putExtra("Lista", c)
                 startActivity(intent)
             }
         }
@@ -65,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         val item = menu?.findItem(R.id.action_search)
         val searchView = item?.actionView as SearchView
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 TODO("Not yet implemented")
             }

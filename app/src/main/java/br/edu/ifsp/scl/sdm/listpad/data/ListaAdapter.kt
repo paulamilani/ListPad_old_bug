@@ -10,19 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import br.edu.ifsp.scl.sdm.listpad.R
 import br.edu.ifsp.scl.sdm.listpad.model.Lista
 
-class ListaAdapter (val listaLista:ArrayList<Lista>): RecyclerView.Adapter<ListaAdapter.ListaViewHolder>(),
-    Filterable {
+class ListaAdapter(val listaLista: ArrayList<Lista>) :
+    RecyclerView.Adapter<ListaAdapter.ListaViewHolder>(), Filterable {
 
-    var listener:ListaListener?=null
-
+    var listener: ListaListener? = null
     var listaListaFilterable = ArrayList<Lista>()
 
     init {
         this.listaListaFilterable = listaLista
     }
 
-    fun setClickListener(listener: ItemAdapter.ItemListener)
-    {
+    fun setClickListener(listener: ListaListener) {
         this.listener = listener
     }
 
@@ -30,12 +28,13 @@ class ListaAdapter (val listaLista:ArrayList<Lista>): RecyclerView.Adapter<Lista
         parent: ViewGroup,
         viewType: Int
     ): ListaAdapter.ListaViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        return  ListaViewHolder(view)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.lista_item, parent, false)
+        return ListaViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ListaAdapter.ListaViewHolder, position: Int) {
         holder.nomeVH.text = listaListaFilterable[position].nome
+        holder.descVH.text = listaListaFilterable[position].descricao
 
     }
 
@@ -43,9 +42,9 @@ class ListaAdapter (val listaLista:ArrayList<Lista>): RecyclerView.Adapter<Lista
         return listaListaFilterable.size
     }
 
-    inner class ListaViewHolder(view: View): RecyclerView.ViewHolder(view)
-    {
+    inner class ListaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nomeVH = view.findViewById<TextView>(R.id.nome)
+        val descVH = view.findViewById<TextView>(R.id.descricao)
 
 
         init {
@@ -56,18 +55,16 @@ class ListaAdapter (val listaLista:ArrayList<Lista>): RecyclerView.Adapter<Lista
 
     }
 
-    interface ListaListener
-    {
+    interface ListaListener {
         fun onItemClick(pos: Int)
     }
 
     override fun getFilter(): Filter {
-        return object : Filter(){
+        return object : Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 if (p0.toString().isEmpty())
                     listaListaFilterable = listaLista
-                else
-                {
+                else {
                     val resultList = ArrayList<Lista>()
                     for (row in listaLista)
                         if (row.nome.lowercase().contains(p0.toString().lowercase()))

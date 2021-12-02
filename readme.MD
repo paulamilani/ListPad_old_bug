@@ -1,4 +1,4 @@
-# LISTPAD
+<h1 align="center">LISTPAD</h1>
 
 ## Projeto integrado das disciplinas de Programação de Dispositivos Android 1 (PA1) e Banco de Dados para Computação Móvel (BDM).
 
@@ -15,13 +15,14 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
 * 🛠 setup
 
 ## Features
-- [] CRUD Lista
+- [x] CRUD Lista
     - [] detalhes lista
     - [] flag urgência lista
 - [] CRUD Item
     - [] flag done item
   
 ## Entrega
+
 -[ ] video demo
 -[x] código repositório
 
@@ -31,7 +32,7 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
 - [x] ajuste data
 - [x] ajuste adapter
 - [x] activitys / campos
-- [ ] bug carregamento app
+- [x] bug carregamento app
 
 ### Demo
 
@@ -41,8 +42,8 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
 Desenvolvido por Paula Milani
 
 
-🚧  App 🚀 Em construção...  🚧
-
-
+<h4 align="center"> 
+	🚧  App 🚀 Em construção...  🚧
+</h4>
 
 

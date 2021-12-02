@@ -24,6 +24,7 @@ class DetalheActivity : AppCompatActivity() {
         nome.setText(lista.nome)
         descricao.setText(lista.descricao)
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalhe, menu)
         return super.onCreateOptionsMenu(menu)
@@ -32,21 +33,21 @@ class DetalheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val db = DatabaseHelper(this)
 
-        if (item.itemId==R.id.action_alterarItem) {
+        if (item.itemId == R.id.action_alterar) {
             val nome = findViewById<EditText>(R.id.editTextNome).text.toString()
             val descricao = findViewById<EditText>(R.id.editTextDescricao).text.toString()
 
             lista.nome = nome
             lista.descricao = descricao
 
-            if(db.atualizarLista(Lista())>0)
-                Toast.makeText(this,"Informações alteradas", Toast.LENGTH_LONG).show()
+            if (db.atualizarLista(Lista()) > 0)
+                Toast.makeText(this, "Informações alteradas", Toast.LENGTH_LONG).show()
             finish()
         }
 
-        if (item.itemId==R.id.action_excluirItem) {
-            if (db.apagarLista(lista)>0)
-                Toast.makeText(this,"Contato excluído", Toast.LENGTH_LONG).show()
+        if (item.itemId == R.id.action_excluir) {
+            if (db.apagarLista(lista) > 0)
+                Toast.makeText(this, "Informações excluídas", Toast.LENGTH_LONG).show()
             finish()
         }
 

@@ -35,9 +35,12 @@ class DatabaseHelper(context: Context) :
 
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_TABLE_CATEGORIA = "CREATE TABLE $CATEGORIA ($ID_CATEGORIA INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_CAT TEXT)"
-        val CREATE_TABLE_LISTA = "CREATE TABLE $LISTA ($ID_LISTA INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT, $DESC_LISTA TEXT, $URGENTE INTEGER, $CAT_FK INTEGER, FOREIGN KEY ($CAT_FK ) REFERENCES $CATEGORIA ($ID_CATEGORIA))"
-        val CREATE_TABLE_ITEM = "CREATE TABLE $ITEM ($ID_ITEM INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_ITEM TEXT, $FLAG TEXT, $LISTA_FK INTEGER, FOREIGN KEY ($LISTA_FK) REFERENCES $LISTA ($ID_LISTA))"
+        val CREATE_TABLE_CATEGORIA =
+            "CREATE TABLE $CATEGORIA ($ID_CATEGORIA INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_CAT TEXT)"
+        val CREATE_TABLE_LISTA =
+            "CREATE TABLE $LISTA ($ID_LISTA INTEGER PRIMARY KEY AUTOINCREMENT, $NOME TEXT, $DESC_LISTA TEXT, $URGENTE INTEGER, $CAT_FK INTEGER, FOREIGN KEY ($CAT_FK ) REFERENCES $CATEGORIA ($ID_CATEGORIA))"
+        val CREATE_TABLE_ITEM =
+            "CREATE TABLE $ITEM ($ID_ITEM INTEGER PRIMARY KEY AUTOINCREMENT, $DESC_ITEM TEXT, $FLAG TEXT, $LISTA_FK INTEGER, FOREIGN KEY ($LISTA_FK) REFERENCES $LISTA ($ID_LISTA))"
 
         db?.execSQL(CREATE_TABLE_ITEM)
         db?.execSQL(CREATE_TABLE_LISTA)
@@ -49,7 +52,6 @@ class DatabaseHelper(context: Context) :
         //upgrade versao
     }
 
-
     //INSERIR
     fun inserirCategoria(categoria: Categoria): Long {
         val db = this.writableDatabase
@@ -60,6 +62,7 @@ class DatabaseHelper(context: Context) :
         db.close()
         return result
     }
+
     fun inserirLista(lista: Lista): Long {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -91,10 +94,12 @@ class DatabaseHelper(context: Context) :
         val values = ContentValues()
         values.put(ID_CATEGORIA, categoria.id_categoria)
         values.put(DESC_CAT, categoria.descricao)
-        val result = db.update(CATEGORIA, values, "$ID_ITEM=?", arrayOf(categoria.id_categoria.toString()))
+        val result =
+            db.update(CATEGORIA, values, "$ID_ITEM=?", arrayOf(categoria.id_categoria.toString()))
         db.close()
         return result
     }
+
     fun atualizarLista(lista: Lista): Int {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -127,6 +132,7 @@ class DatabaseHelper(context: Context) :
         db.close()
         return result
     }
+
     fun apagarLista(lista: Lista): Int {
         val db = this.writableDatabase
         val result = db.delete(LISTA, "$ID_ITEM=?", arrayOf(lista.id_lista.toString()))
@@ -141,25 +147,24 @@ class DatabaseHelper(context: Context) :
         return result
     }
 
-
     //LISTAR
     fun listarlista(): ArrayList<Lista> {
-        val listarLista = ArrayList<Lista>()
+        val listaLista = ArrayList<Lista>()
         val query = "SELECT * FROM $LISTA"
         val db = this.readableDatabase
         val cursor = db.rawQuery(query, null)
         while (cursor.moveToNext()) {
-            val c = Item(
+            val c = Lista(
                 cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3)
             )
-            listarItem().add(c)
+            listaLista.add(c)
         }
         cursor.close()
         db.close()
-        return listarlista()
+        return listaLista
     }
 
     fun listarItem(): ArrayList<Item> {
@@ -174,11 +179,11 @@ class DatabaseHelper(context: Context) :
                 cursor.getString(2),
                 cursor.getString(3)
             )
-            listarItem().add(c)
+            listarItem.add(c)
         }
         cursor.close()
         db.close()
-        return listarItem()
+        return listarItem
     }
 
 }
