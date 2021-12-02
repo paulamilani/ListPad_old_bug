@@ -23,8 +23,8 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
   
 ## Entrega
 
--[ ] video demo
--[x] código repositório
+- [] video demo
+- [x] código repositório
 
 ### TO DO
 
