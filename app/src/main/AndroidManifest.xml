@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ListPad">
         <activity
-            android:name=".activity.DetalheActivity"
+            android:name="br.edu.ifsp.scl.sdm.listpad.activity.DetalheActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.CadastroActivity"
+            android:name="br.edu.ifsp.scl.sdm.listpad.activity.CadastroActivity"
             android:exported="true" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="br.edu.ifsp.scl.sdm.listpad.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

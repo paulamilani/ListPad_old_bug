@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = ListaAdapter
 
-        val listener = object : ListaAdapter.ListaListener {
+        val listener = object :ListaAdapter.ListaListener {
             override fun onItemClick(pos: Int) {
                 val intent = Intent(applicationContext, DetalheActivity::class.java)
                 val c = ListaAdapter.listaListaFilterable[pos]

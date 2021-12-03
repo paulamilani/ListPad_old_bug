@@ -40,7 +40,7 @@ class DetalheActivity : AppCompatActivity() {
             lista.nome = nome
             lista.descricao = descricao
 
-            if (db.atualizarLista(Lista()) > 0)
+            if (db.atualizarLista(lista) > 0)
                 Toast.makeText(this, "Informações alteradas", Toast.LENGTH_LONG).show()
             finish()
         }

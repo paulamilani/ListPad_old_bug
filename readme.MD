@@ -12,18 +12,16 @@ adicionada novas listas ou que acesse os detalhes de cada listas como também fl
     
     * SQLite
   
-* 🛠 setup
-
 ## Features
-- [x] CRUD Lista
-    - [] detalhes lista
-    - [] flag urgência lista
-- [] CRUD Item
-    - [] flag done item
+- CRUD Lista
+    - detalhes lista
+    - flag urgência lista
+- CRUD Item
+    - flag done item
   
 ## Entrega
 
-- [] video demo
+- [x] video demo
 - [x] código repositório
 
 ### TO DO
